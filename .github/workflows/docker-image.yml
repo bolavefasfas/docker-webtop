@@ -1,0 +1,20 @@
+name: Publish Docker Image To Dockerhub Normal Build
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  push:
+   branches: [ ubuntu-mate ]
+      
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build & Push Image
+      run: |
+        echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "dibssbd" --password-stdin
+        docker image build -t dibssbd/ubuntu-webtop:mate .
+        docker push dibssbd/ubuntu-webtop:mate
