@@ -30,6 +30,43 @@ RUN \
     /var/lib/apt/lists/* \
     /var/tmp/* \
     /tmp/*
+RUN \
+  echo "**** install packages ****" && \
+  apt-get update && \
+  DEBIAN_FRONTEND=noninteractive \
+  apt-get install --no-install-recommends -y \
+    fcitx-config-gtk \
+    gnome-tweaks \
+    gnome-usage \
+    rclone \
+    neofetch \
+    zip \
+    unzip \
+    rar \
+    unrar \
+    nano \
+    vim \
+    curl \
+    wget \
+    git \
+    libreoffice \
+    gimp \
+    vlc \
+    telegram-desktop \
+    curl \
+    nautilus \
+    docker.io \
+    docker-compose \
+    software-properties-common \
+    apt-transport-https \
+    wget && \
+        
+  echo "**** cleanup ****" && \
+  apt-get autoclean && \
+  rm -rf \
+    /var/lib/apt/lists/* \
+    /var/tmp/* \
+    /tmp/*  
 
 # add local files
 COPY /root /
