@@ -41,6 +41,7 @@ RUN \
     rclone \
     neofetch \
     zip \
+    htop \
     unzip \
     rar \
     unrar \
