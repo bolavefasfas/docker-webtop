@@ -14,5 +14,5 @@ jobs:
     - name: Build & Push Image
       run: |
         echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "dibssbd" --password-stdin
-        docker image build -t dibssbd/ubuntu-gnome:gnome .
-        docker push dibssbd/ubuntu-gnome:gnome
+        docker image build -t dibssbd/ubuntu-gnome:mate .
+        docker push dibssbd/ubuntu-gnome:mate
